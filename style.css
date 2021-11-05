@@ -42,6 +42,11 @@ header {
   padding: 30px 40px;
 }
 
+.card h2 {
+  align-self: center;
+  text-align: center;
+}
+
 .card-header::after {
   content: " ";
   display: block;
@@ -54,9 +59,32 @@ header {
   min-height: 100px;
 }
 
-.card-footer {
-  text-align: center;
+label {
+  font-weight: bold;
 }
+
+.card-footer {
+  text-align: center; 
+  display: flex;
+  align-content: center;
+  justify-content: center;
+  flex-direction: column;
+} 
+
+#card-footer-form {
+  display: grid;
+  grid-template-columns: auto auto;
+  justify-content: center;
+  align-items: center;
+  padding-top: 9px;
+}
+
+#card-footer-form div {
+  padding-bottom: 4px;
+  padding-top: 5px;
+}
+
+
 
 .card-footer::before {
   content: " ";

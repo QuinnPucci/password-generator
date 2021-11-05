@@ -25,7 +25,30 @@
           ></textarea>
         </div>
         <div class="card-footer">
-          <button id="generate" class="btn">Generate Password</button>
+          <div id="card-footer-form">
+          <form id="form">
+            <label for="">Number of Characters</label>
+            <div>
+            <input id="characterRange" type="number" min="1" max="36" value="12">
+            </div>
+            <div>
+            <label for="upper">Include Uppercase Letters</label>
+            <input type="checkbox" id="upper">
+          </div>
+          <div>
+            <label for="number">Include Numbers</label>
+            <input type="checkbox" id="number">
+          </div>
+          <div>
+            <label for="symbol">Include Symbols</label>
+            <input type="checkbox" id="symbol">
+          </div>
+          <div id="card-footer-button">
+            <button type="submit" id="generate" class="btn">Generate Password</button>
+          </div>
+          </form>
+        </div>
+       
         </div>
       </div>
     </div>
