@@ -1,17 +1,17 @@
-var form = document.getElementById("form")
-var rangeEl = document.getElementById("characterRange")
-var upperEl = document.getElementById("upper")
-var numberEl = document.getElementById("number")
-var symbolEl = document.getElementById("symbol")
+var form = document.getElementById('form')
+var rangeEl = document.getElementById('characterRange')
+var upperEl = document.getElementById('upper')
+var numberEl = document.getElementById('number')
+var symbolEl = document.getElementById('symbol')
 
 var LOWERCASE_CHAR_CODE = arrayFromLowToHigh(97,122)
 var UPPERCASE_CHAR_CODE = arrayFromLowToHigh(65,90)
 var NUMBER_CHAR_CODE = arrayFromLowToHigh(48,57)
 var SYMBOL_CHAR_CODE = arrayFromLowToHigh(33,47)
-var passwordDisplay = document.getElementById("password")
+var passwordDisplay = document.getElementById('password')
 
 
-form.addEventListener("submit", e=> {
+form.addEventListener('submit', e=> {
   e.preventDefault
   var range = rangeEl.value
   var upper = upperEl.checked
@@ -31,9 +31,9 @@ function generatePassword(range, upper, symbol, number) {
  var passwordCharacters = []
  for  (let i=0; i < rangeEl; i++) {
    var characterCode = charCodes[Math.floor(Math.random() * charCodes.length)]
- passwordCharacters.push(String.fromCharCode(characterCode)
+ passwordCharacters.push(String.fromCharCode(characterCode))
  }
- return passwordCharacters.join("")
+ return passwordCharacters.join('')
 }
 
 function arrayFromLowToHigh(low, high) {
