@@ -12,7 +12,7 @@ var passwordDisplay = document.getElementById('password')
 
 
 form.addEventListener('submit', e=> {
-  e.preventDefault
+  e.preventDefault()
   var range = rangeEl.value
   var upper = upperEl.checked
   var number = numberEl.checked
@@ -29,7 +29,7 @@ function generatePassword(range, upper, symbol, number) {
  if (symbol) charCodes = charCodes.concat(SYMBOL_CHAR_CODE)
 
  var passwordCharacters = []
- for  (let i=0; i < rangeEl; i++) {
+ for  (let i=0; i < range; i++) {
    var characterCode = charCodes[Math.floor(Math.random() * charCodes.length)]
  passwordCharacters.push(String.fromCharCode(characterCode))
  }
