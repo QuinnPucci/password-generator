@@ -1,5 +1,6 @@
 var form = document.getElementById('form')
 var rangeEl = document.getElementById('characterRange')
+var lowerEl = document.getElementById ('lower')
 var upperEl = document.getElementById('upper')
 var numberEl = document.getElementById('number')
 var symbolEl = document.getElementById('symbol')
@@ -11,25 +12,46 @@ var SYMBOL_CHAR_CODE = arrayFromLowToHigh(33,47)
 var passwordDisplay = document.getElementById('password')
 
 
-form.addEventListener('submit', e=> {
-  e.preventDefault()
+form.addEventListener('submit', event=> {
+  event.preventDefault()
+  console.log("in form")
   var range = rangeEl.value
+  var lower = lowerEl.checked
   var upper = upperEl.checked
   var number = numberEl.checked
   var symbol = symbolEl.checked
-  generatePassword()
-  var password = generatePassword(range, upper, symbol, number);
+  console.log(typeof number)
+  console.log("range" + range + " upper" + upper + " number" + number + " symbol" + symbol)
+  var password = generatePassword(range, lower, upper, symbol, number);
   passwordDisplay.innerText = password
 })
 
-function generatePassword(range, upper, symbol, number) {
- let charCodes = LOWERCASE_CHAR_CODE 
- if (upper) charCodes = charCodes.concat(UPPERCASE_CHAR_CODE)
- if (number) charCodes = charCodes.concat(NUMBER_CHAR_CODE)
- if (symbol) charCodes = charCodes.concat(SYMBOL_CHAR_CODE)
+function generatePassword(range, lower, upper, symbol, number) {
+ if (lower === false && upper === false && symbol === false && number === false) {
+   alert("You must pick one or more of the criteria")
+   return 
+ }
+let charCodes = [] ; 
+var passwordCharacters = []
+if (lower) { 
+  charCodes = charCodes.concat(LOWERCASE_CHAR_CODE)
+passwordCharacters.push(String.fromCharCode(LOWERCASE_CHAR_CODE[Math.floor(Math.random()* LOWERCASE_CHAR_CODE.length)]))
+}
+if (upper) { 
+  charCodes = charCodes.concat(UPPERCASE_CHAR_CODE)
+passwordCharacters.push(String.fromCharCode(UPPERCASE_CHAR_CODE[Math.floor(Math.random()* UPPERCASE_CHAR_CODE.length)]))
+}
+if (lower) { 
+  charCodes = charCodes.concat(NUMBER_CHAR_CODE)
+passwordCharacters.push(String.fromCharCode(NUMBER_CHAR_CODE[Math.floor(Math.random()* NUMBER_CHAR_CODE.length)]))
+}
+if (lower) { 
+  charCodes = charCodes.concat(SYMBOL_CHAR_CODE)
+passwordCharacters.push(String.fromCharCode(SYMBOL_CHAR_CODE[Math.floor(Math.random()* SYMBOL_CHAR_CODE.length)]))
+}
 
- var passwordCharacters = []
- for  (let i=0; i < range; i++) {
+ console.log(passwordCharacters)
+ for  (let i=passwordCharacters.length; i < range; i++) {
    var characterCode = charCodes[Math.floor(Math.random() * charCodes.length)]
  passwordCharacters.push(String.fromCharCode(characterCode))
  }
