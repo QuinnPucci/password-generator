@@ -20,15 +20,13 @@ form.addEventListener('submit', event=> {
   var upper = upperEl.checked
   var number = numberEl.checked
   var symbol = symbolEl.checked
-  console.log(typeof number)
-  console.log("range" + range + " upper" + upper + " number" + number + " symbol" + symbol)
   var password = generatePassword(range, lower, upper, symbol, number);
   passwordDisplay.innerText = password
 })
 
 function generatePassword(range, lower, upper, symbol, number) {
  if (lower === false && upper === false && symbol === false && number === false) {
-   alert("You must pick one or more of the criteria")
+   alert("You must pick one or more of the character options")
    return 
  }
 let charCodes = [] ; 
@@ -41,16 +39,15 @@ if (upper) {
   charCodes = charCodes.concat(UPPERCASE_CHAR_CODE)
 passwordCharacters.push(String.fromCharCode(UPPERCASE_CHAR_CODE[Math.floor(Math.random()* UPPERCASE_CHAR_CODE.length)]))
 }
-if (lower) { 
+if (number) { 
   charCodes = charCodes.concat(NUMBER_CHAR_CODE)
 passwordCharacters.push(String.fromCharCode(NUMBER_CHAR_CODE[Math.floor(Math.random()* NUMBER_CHAR_CODE.length)]))
 }
-if (lower) { 
+if (symbol) { 
   charCodes = charCodes.concat(SYMBOL_CHAR_CODE)
 passwordCharacters.push(String.fromCharCode(SYMBOL_CHAR_CODE[Math.floor(Math.random()* SYMBOL_CHAR_CODE.length)]))
 }
 
- console.log(passwordCharacters)
  for  (let i=passwordCharacters.length; i < range; i++) {
    var characterCode = charCodes[Math.floor(Math.random() * charCodes.length)]
  passwordCharacters.push(String.fromCharCode(characterCode))
