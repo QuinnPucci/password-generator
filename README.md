@@ -1,4 +1,4 @@
-## Password Generator
+# Password Generator
 
   [Application live here](https://quinnpucci.github.io/password-generator/)
 
